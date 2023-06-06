@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins: 300,400, 500, 600, 700 , 800, 900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body
+{
+    min-height: 100vh;
+    background: linear-gradient(#ffa630, #FFC594);
+}
+
+header
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header a.logos
+{
+    color:#fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    Letter-spacing: 2px;
+}
+
+header ul
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li
+{
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a
+{
+    text-decoration: none;
+    padding: 6px 15px;
+    color:#fff;
+}
+
+header ul li a:hover
+{
+    background: white;
+    color: #FFA630;
+    border-radius: 20px;
+}
+
+header ul li a.git:hover
+{
+    background: white;
+    color: grey;
+}
+
+section.download
+{
+    text-align:center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: inline-table;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+section ul .download
+{
+    display: inline-table;
+    justify-content: center;
+    align-items: center;
+}
+
+section.download ul li
+{
+    list-style: none;
+    display: inline;
+    margin-left: 20px;
+}
+
+section.download ul li a
+{
+    text-decoration: none;
+    padding: 6px 15px;
+    color:#fff;
+}
+
+
+section.download ul li a:hover
+{
+    background: whitesmoke;
+    color: #ffa630;
+    border-radius: 10px;
+}
+
+section.about-people
+{
+
+    text-align:center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 111;
+}

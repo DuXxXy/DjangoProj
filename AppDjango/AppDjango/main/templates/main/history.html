@@ -1,0 +1,229 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+About-Project
+{% endblock %}
+
+{% block css_additional %}
+    <style>
+        .timeline {
+            padding: 150px 0;
+            position: relative;
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            width: 100%;
+            padding: 150px 0;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: 48.8%;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item.completed:before {
+            background-color: #2E5077;
+        }
+
+        .date,
+        .title {
+            position: relative;
+            z-index: 2;
+        }
+
+        .date {
+            color: #2E5077;
+            font-size: 18px;
+            margin-bottom: 5px;
+            position: absolute;
+            left: calc(50% - 130px);
+        }
+
+        .timeline-item:nth-child(odd) .date {
+            left: calc(50% + 50px);
+        }
+
+        .title {
+            font-size: 55px;
+            font-weight: bold;
+            color: #611C35;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) .title {
+            left: 50px;
+        }
+
+        .timeline-item:nth-child(even) .title {
+            left: -50px;
+        }
+        .timeline:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 10px;
+            height: 100%;
+            background-color: white;
+            z-index: 0;
+        }
+
+        .timeline-item.completed .title {
+            color: #2E5077;
+        }
+
+
+        .details {
+            position: absolute;
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0);
+            color: #333;
+            padding: 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            z-index: 3;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.6s ease;
+}
+        .timeline-item:nth-child(even):hover .details {
+            left: calc(50% + 50px);
+        }
+
+        .timeline-item:nth-child(odd):hover .details {
+            left: calc(50% - 350px);
+        }
+
+        .timeline-item:hover .details {
+            background-color: rgba(255, 255, 255, 0.9);
+            opacity: 1;
+        }
+    </style>
+
+{% endblock %}
+
+
+{% block content %}
+    <body class = "fade-in">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent" style = "align-content: center">
+            <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                  <ul class="navbar-nav mx-md-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" >About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'history' %}">Our History</a></li>
+                  </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+        <br><br><br>
+        <div class="container marketing" style="text-align: center; color: white">
+            <h1>The people behind</h1><br><br>
+            <div class="row">
+            <div class="col-lg-3" style = "text-align: center">
+            <img src = "{% static "/main/img/Z.png" %}" style="border-radius: 20px;"><br><br>
+            <h2 style="color: #333">Zachée Descamps</h2>
+            <p style="color: #333">Core Developper</p>
+                <p><a class="btn btn-outline-light" href="https://www.linkedin.com/in/zach%C3%A9e-descamps-212235269">LinkedIn</a></p>
+          </div>
+          <div class="col-lg-3" style = "text-align: center">
+            <img src = "{% static "/main/img/D.png" %}" style="border-radius: 20px;"><br><br>
+            <h2 style="color: #333" >Denis Mirochnikov</h2>
+            <p style="color: #333" >Web & Developper</p>
+            <p><a class="btn btn-outline-light" href="https://www.linkedin.com/in/denis-mirochnikov-459aa5225">LinkedIn</a></p>
+          </div>
+
+          <div class="col-lg-3" style = "text-align: center">
+            <img src = "{% static "/main/img/M.png" %}" style="border-radius: 20px;"><br><br>
+
+            <h2 style="color: #333">Mark Dessevre</h2>
+            <p style="color: #333">Developper & Designer</p>
+            <p><a class="btn btn-outline-light" href="https://www.linkedin.com/in/marc-dessevre-6a99b6268">LinkedIn</a></p>
+          </div>
+                <div class="col-lg-3" style = "text-align: center">
+                   <img src = "{% static "/main/img/Do.png" %}" style="border-radius: 20px;"><br><br>
+                    <h2 style="color: #333">Dorian Forot</h2>
+                    <p style="color: #333">Developper</p>
+                    <p><a class="btn btn-outline-light" href="https://www.linkedin.com/in/dorian-forot-407b00268">LinkedIn</a></p>
+          </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="title">End Game</span>
+                        <span class="date" style="left : 59.9%; color : #611C35">May<br>2023</span>
+                        <div class="details">
+                            <h5>Final part</h5>
+                            <p>In the final month of development, we added highly anticipated online multiplayer functionality, enhancing the social aspect of the game. We also focused on improving the visual appeal by introducing various in-game decorations. Additionally, new captivating entities were introduced to make the gameplay even more engaging. Finally, we successfully launched the game's official website, serving as a central hub for information and community interaction. These updates showcase our commitment to delivering an immersive gaming experience that surpasses our previous achievements.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item completed ">
+                        <span class="title">Improvement</span>
+                        <span class="date" style="left : 39.4%">March<br>2023</span>
+                        <div class="details">
+                            <h5>Improvement Phase</h5>
+                            <p>During the Improvement Phase, our primary focus was on implementing multiplayer functionality and enhancing the user experience through additions such as music and room decorations.<br><br> Moreover, this phase also included the final development of our website, adding necessary elements to showcase our game and provide detailed information about the development process.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item completed">
+                        <span class="date" style="left : 55.2%">February<br>2023</span>
+                        <span class="title">Developpement</span>
+                        <div class="details">
+                            <h5>Development Phase</h5>
+                            <p>During the development phase, we applied all the previously designed object-oriented classes to create a beta version of our game, as well as developing our website.The game features rooms, objects to find, and an engaging backstory.<br><br> This period was focused on bringing together all aspects of the game and website, providing a more cohesive experience for our users.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item completed ">
+                        <span class="date" style="left : 39.9%">January<br>2023</span>
+                        <span class="title">Graphic Engine</span>
+                        <div class="details">
+                            <h5>Development Sprint</h5>
+                            <p>During this sprint, we focused on object-oriented design, carefully considering the creation, utility, and organization of classes to make the app as optimized as possible.<br><br>This approach allowed us to address various aspects of video game development efficiently and maintainably.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item completed ">
+                        <span class="date" style="left : 57.2%">December<br>2022</span>
+                        <span class="title">Conception</span>
+                        <div class="details">
+                            <h5>Story Time</h5>
+                            <p>During the first month, we conceptualized our game, thought about the libraries we could use, and crafted an entire story to immerse you in our post-apocalyptic world.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+        </main>
+    </body>
+
+{% endblock %}
